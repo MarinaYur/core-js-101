@@ -241,6 +241,7 @@ function getMovingSum(/* arr */) {
   // return newArr;
 
   throw new Error('Not implemented');
+  // return arr.reduce((total, item) => total + item, []);
 
   // const newArr = [];
   // let total = 0;
@@ -582,8 +583,10 @@ function selectMany(arr, childrenSelector) {
  *   ['one','two','three'], [2]       => 'three'  (arr[2])
  *   [[[ 1, 2, 3]]], [ 0, 0, 1 ]      => 2        (arr[0][0][1])
  */
-function getElementByIndexes(arr, indexes) {
-  return arr.filter((_, index) => (index === indexes));
+function getElementByIndexes(/* arr, indexes */) {
+  // const indexesStr = indexes.join();
+  // return arr.filter((item) => (item === arr[indexes])).join('');
+  throw new Error('Not implemented');
 }
 
 
