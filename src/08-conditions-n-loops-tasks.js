@@ -27,8 +27,18 @@
  *  21 => 'Fizz'
  *
  */
-function getFizzBuzz(/* num */) {
-  throw new Error('Not implemented');
+function getFizzBuzz(num) {
+  // throw new Error('Not implemented');
+  if (num % 3 === 0 && num % 5 === 0) {
+    return 'FizzBuzz';
+  }
+  if (num % 3 === 0) {
+    return 'Fizz';
+  }
+  if (num % 5 === 0) {
+    return 'Buzz';
+  }
+  return num;
 }
 
 
@@ -43,8 +53,13 @@ function getFizzBuzz(/* num */) {
  *   5  => 120
  *   10 => 3628800
  */
-function getFactorial(/* n */) {
-  throw new Error('Not implemented');
+function getFactorial(n) {
+  // throw new Error('Not implemented');
+  let result = 1;
+  for (let i = 1; i <= n; i += 1) {
+    result *= i;
+  }
+  return result;
 }
 
 
@@ -60,8 +75,13 @@ function getFactorial(/* n */) {
  *   5,10  =>  45 ( = 5+6+7+8+9+10 )
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
-function getSumBetweenNumbers(/* n1, n2 */) {
-  throw new Error('Not implemented');
+function getSumBetweenNumbers(n1, n2) {
+  // throw new Error('Not implemented');
+  let result = 0;
+  for (let i = n1; i <= n2; i += 1) {
+    result += i;
+  }
+  return result;
 }
 
 
@@ -82,6 +102,18 @@ function getSumBetweenNumbers(/* n1, n2 */) {
  */
 function isTriangle(/* a, b, c */) {
   throw new Error('Not implemented');
+  // const ab = a + b;
+  // const bc = b + c;
+  // const ac = a + c;
+  // let counter;
+  // if (ab > c && bc > a) {
+  //   if (ac > b) {
+  //     counter += 1;
+  //   }
+  // } else {
+  //   counter = 0;
+  // }
+  // return Boolean(counter);
 }
 
 
@@ -164,8 +196,20 @@ function isInsideCircle(/* circle, point */) {
  *   'abracadabra'  => 'c'
  *   'entente' => null
  */
-function findFirstSingleChar(/* str */) {
-  throw new Error('Not implemented');
+function findFirstSingleChar(str) {
+  // throw new Error('Not implemented');
+  const arrStr = str.split('');
+  const counter = new Array(arrStr.length).fill(0);
+  let result = 0;
+  arrStr.forEach((i) => {
+    counter[arrStr.indexOf(i)] += 1;
+  });
+  if (arrStr[counter.indexOf(1)]) {
+    result = arrStr[counter.indexOf(1)];
+  } else {
+    result = null;
+  }
+  return result;
 }
 
 

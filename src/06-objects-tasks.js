@@ -22,7 +22,6 @@
  */
 function Rectangle(width, height) {
   // throw new Error('Not implemented');
-  // constructor(width, height) {
   this.width = width;
   this.height = height;
   this.getArea = () => this.width * this.height;
@@ -120,6 +119,7 @@ function fromJSON(proto, json) {
 
 const cssSelectorBuilder = {
   element(/* value */) {
+    // return JSON.stringify(value);
     throw new Error('Not implemented');
   },
 
@@ -144,8 +144,9 @@ const cssSelectorBuilder = {
     return `::${value}`;
   },
 
-  combine(/* selector1, combinator, selector2 */) {
-    throw new Error('Not implemented');
+  combine(selector1, combinator, selector2) {
+    return `${selector1}${combinator}${selector2}`;
+    // throw new Error('Not implemented');
   },
 };
 
