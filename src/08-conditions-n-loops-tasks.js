@@ -235,8 +235,13 @@ function findFirstSingleChar(str) {
  *   5, 3, true, true   => '[3, 5]'
  *
  */
-function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
-  throw new Error('Not implemented');
+function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
+  // throw new Error('Not implemented');
+  const openBracket = (isStartIncluded === true) ? '[' : '(';
+  const closeBracket = (isEndIncluded === true) ? ']' : ')';
+  const a1 = (a < b) ? a : b;
+  const b1 = (b < a) ? a : b;
+  return `${openBracket}${a1}, ${b1}${closeBracket}`;
 }
 
 
@@ -252,8 +257,9 @@ function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
  * 'rotator' => 'rotator'
  * 'noon' => 'noon'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  // throw new Error('Not implemented');
+  return str.split('').reverse().join('');
 }
 
 
@@ -269,8 +275,9 @@ function reverseString(/* str */) {
  *   87354 => 45378
  *   34143 => 34143
  */
-function reverseInteger(/* num */) {
-  throw new Error('Not implemented');
+function reverseInteger(num) {
+  // throw new Error('Not implemented');
+  return String(num).split('').reverse().join('');
 }
 
 
@@ -296,6 +303,18 @@ function reverseInteger(/* num */) {
  */
 function isCreditCardNumber(/* ccn */) {
   throw new Error('Not implemented');
+  // let sum = 0;
+  // for (let i = 1; i < ccn.length - 1; i += 1) {
+  //   let cardNum = parseInt(ccn[i], 10);
+  //   if (i % 2 === 0) {
+  //     cardNum *= 2;
+  //     if (cardNum > 9) {
+  //       cardNum -= 9;
+  //     }
+  //   }
+  //   sum += cardNum;
+  // }
+  // return sum % 10 === 0;
 }
 
 /**
@@ -312,10 +331,18 @@ function isCreditCardNumber(/* ccn */) {
  *   10000 ( 1+0+0+0+0 = 1 ) => 1
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
-function getDigitalRoot(/* num */) {
-  throw new Error('Not implemented');
+function getDigitalRoot(num) {
+  // throw new Error('Not implemented');
+  let result = 0;
+  if (num < 9) {
+    result = num;
+  } else {
+    const sum = String(num).split('').reduce((total, item) => total + Number(item), 0);
+    result = sum;
+    return getDigitalRoot(sum);
+  }
+  return result;
 }
-
 
 /**
  * Returns true if the specified string has the balanced brackets and false otherwise.
@@ -363,8 +390,9 @@ function isBracketsBalanced(/* str */) {
  *    365, 4  => '11231'
  *    365, 10 => '365'
  */
-function toNaryString(/* num, n */) {
-  throw new Error('Not implemented');
+function toNaryString(num, n) {
+  // throw new Error('Not implemented');
+  return num.toString(n);
 }
 
 

@@ -234,39 +234,14 @@ function toArrayOfSquares(arr) {
  *   [ 0, 0, 0, 0, 0]         => [ 0, 0, 0, 0, 0]
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
-function getMovingSum(/* arr */) {
-  // const newArr = [];
-  // arr.reduce((total, item) => newArr.push(total + item), 0);
-  // return newArr;
-
-  throw new Error('Not implemented');
-  // return arr.reduce((total, item) => total + item, []);
-
-  // const newArr = [];
-  // let total = 0;
-  // arr.map((item) => {
-  //   newArr.push(total + item);
-  //   total += item;
-  //   return newArr;
-  // });
-
-  // const newArr = [];
-  // let memory = arr[0];
-  // newArr.push(memory);
-  // let a = arr[0];
-  // for (let i = 1; i < arr.length; i += 1) {
-  //   a += arr[i];
-  //   newArr.push(a);
-  //   memory = a;
-  // }
-  // return newArr;
-
-  // const newArr = [];
-  // let a = 0;
-  // arr.map((item) => {
-  //   a += item;
-  //   return newArr.push(a);
-  // });
+function getMovingSum(arr) {
+  let total = 0;
+  function sum(item) {
+    total += item;
+    return total;
+  }
+  const newArr = arr.map((item) => sum(item));
+  return newArr;
 }
 
 /**
@@ -355,8 +330,32 @@ function getPositivesCount(arr) {
  *   [ 'nine','eight','nine','eight'] => [ 'eight','eight','nine','nine']
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
-function sortDigitNamesByNumericOrder(/* arr */) {
-  throw new Error('Not implemented');
+function sortDigitNamesByNumericOrder(arr) {
+  // throw new Error('Not implemented');
+  const obj = {
+    0: 'zero',
+    1: 'one',
+    2: 'two',
+    3: 'three',
+    4: 'four',
+    5: 'five',
+    6: 'six',
+    7: 'seven',
+    8: 'eight',
+    9: 'nine',
+  };
+  const arraySortAllDigits = Object.values(obj);
+  function resultItem(item) {
+    const index = arraySortAllDigits.indexOf(item);
+    return `${index}${item}`;
+  }
+  return arr.map((item) => resultItem(item))
+    .sort()
+    .map((item) => {
+      const result = item.split('');
+      result.shift();
+      return result.join('');
+    });
 }
 
 /**
