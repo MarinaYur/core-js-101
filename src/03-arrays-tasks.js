@@ -558,10 +558,25 @@ function distinct(arr) {
 function group(/* array, keySelector, valueSelector */) {
   throw new Error('Not implemented');
   // let mapDate = new Map();
-  // const countryArray = array.filter((item) => (item === keySelector));
-  // let mapValues1 = array.map((item) => ((item.country === )))
-  // array.map((item) => mapDate.set(item.country, ))
-  // return countryArray;
+  // const arrayKeysMap = Array.from(new Set((array.map(keySelector))));
+  // const map = new Map();
+  // function cities(it) {
+  //   return ((keySelector(item) === it) ? valueSelector : false);
+  // }
+  // function a(item) {
+  // if (it.country !== (keySelector(item))) return;
+  //   if (it.country === (keySelector(item))) return valueSelector(item);
+  // }
+  // arrayKeysMap.map((item) => map.set(item, [array.filter(a(item, it))]));
+  // return map;
+  // Array.from(new Set((a.map((item) => item.country)));
+  // return Object.keys(group_to_values).map(key => [ key, group_to_values[key]]);
+  //
+  // const keys = array.map(keySelector).filter((v, i, a) => a.indexOf(v) === i);
+  // return keys.reduce((s, v) => {
+  //   s[v] = array.filter((vv) => keySelector(vv) === v).map((vv) => valueSelector(vv));
+  //   return s;
+  // }, {});
 }
 
 
